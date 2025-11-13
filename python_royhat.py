@@ -32,6 +32,16 @@
 # IT_oquvchilar.insert(4,"Munisa")
 # IT_oquvchilar.insert(5,"Manzura")
 # print(IT_oquvchilar)
+# IT_oquvchilar.remove("Maftuna")
+# print(IT_oquvchilar)
+# IT_oquvchilar.remove("Maxliyoa")
+# print(IT_oquvchilar)
+
+
+
+
+
+
 
 
 
