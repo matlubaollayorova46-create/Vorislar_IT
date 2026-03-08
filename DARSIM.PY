@@ -26,4 +26,7 @@ def _private_function():
   pass
 def myFunction2():
   pass
-
+for x in cars:
+  print(x)
+MASHINA=["BMW", "Volvo", "Ford"]
+MASHINA.pop(1)
