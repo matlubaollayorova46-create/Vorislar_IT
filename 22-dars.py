@@ -41,3 +41,9 @@ while i < len(thistuple):
 x = thistuple.index(8)
 
 print(x)
+sum1 = 100 + 50      # 150 (100 + 50)
+sum2 = sum1 + 250    # 400 (150 + 250)
+sum3 = sum2 + sum2
+x = 1    # int
+y = 2.8  # float
+z = 1j   # complex
