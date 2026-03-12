@@ -24,9 +24,8 @@ class Person:
   def __init__(self, name, age=18):
     self.name = name
     self.age = age
-    self.city = city
-    self.country = country
-        
+   
+
 
 p1 = Person("Emil")
 p2 = Person("Tobias", 25)
@@ -46,3 +45,5 @@ print(p1.name)
 print(p1.age)
 print(p1.city)
 print(p1.country)
+txt = f"The price is 49 dollars"
+print(txt)
