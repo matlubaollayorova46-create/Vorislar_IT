@@ -45,3 +45,12 @@ my_function("Emil")
 my_function("Tobias")
 my_function()
 my_function("Linus")
+car = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+car.clear()
+
+print(car)
