@@ -1,31 +1,37 @@
-Django ko'rinishlari - bu HTML hujjatlari kabi http so'rovlarini qabul qiladigan va http javobini qaytaradigan Python funksiyalari.
+# class Talaba:
+#     def __init__(self,ism,familiya,yosh,otasining_ismi,manzil):
+#         self.ism = ism
+#         self.familiya = familiya
+#         self.yosh = yosh
+#         self.otasining_ismi = otasining_ismi
+#         self.manzil = manzil
+#     def FIO(self):
+#         return f"{self.ism} {self.familiya}{self.otasining_ismi}"    
 
-Django'dan foydalanadigan veb-sahifa turli vazifalar va missiyalarga ega ko'rinishlarga to'la.
 
-views.pyKo'rishlar odatda ilovangiz papkasida joylashgan faylga joylashtiriladi .
+# talaba1=Talaba("matluba","ollayorova","16","Bektemir_qizi","xorazm")
+# print(talaba1.FIO())
+# print(talaba1.manzil)
+# print(talaba1.yosh)
+# print(talaba1.otasining_ismi)
 
-views.pySizning memberspapkangizda quyidagicha ko'rinadigan fayl mavjud :
 
-my_tennis_club/members/views.py:
 
-from django.shortcuts import render
+class kitoblar:
+    def __init__(self,sahifa,narxi,yili,nomi,muallifi,):
+        self.sahifa=sahifa
+        self.narxi=narxi
+        self.yili=yili
+        self.nomi=nomi
+        self.muallifi=muallifi
+    def noma(self):
+        return f"{self.sahifa} {self.narxi} {self.yili} {self.nomi} {self.muallifi}"
+    
+kitob1= kitoblar("127","50","2024","choliqushi","Rashod Nuri Gultekin")
+kitob2= kitoblar("234","56","2009","nur borki soya bor","o'tkir xoshimov")
 
-# Create your views here.
-Uni toping, oching va tarkibni quyidagi bilan almashtiring:
-
-my_tennis_club/members/views.py:
-
-from django.shortcuts import render
-from django.http import HttpResponse
-
-def members(request):
-    return HttpResponse("Hello world!")
-"Eslatma: Ko'rinish nomi ilova nomi bilan bir xil bo'lishi shart emas.
-
-membersMen buni shu kontekstga mos kelishini o'ylaganim uchun shunday deb atayman .
-
-Bu brauzerga javobni qanday qaytarishning oddiy misoli.
-
-Lekin ko'rinishni qanday bajarishimiz mumkin? Xo'sh, biz ko'rinishni URL orqali chaqirishimiz kerak.
-
-Keyingi bobda URL manzillari haqida bilib olasiz ."
+print(kitob1.nomi)
+print(kitob2.yili)
+print(kitob1.sahifa)
+print(kitob2.muallifi)
+    
