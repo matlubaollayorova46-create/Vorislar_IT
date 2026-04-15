@@ -1,39 +1,118 @@
-with open("demofile.txt", "a") as f:
-  f.write("Now the file has more content!")
+import mysql.connector
 
-#open and read the file after the appending:
-with open("demofile.txt") as f:
-  print(f.read())
-  
-  with open("demofile.txt", "w") as f:
-    f.write("Woops! I have deleted the content!")
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
 
-#open and read the file after the overwriting:
-with open("demofile.txt") as f:
-  print(f.read())
-  
-  f = open("myfile.txt", "x")
+mycursor = mydb.cursor()
 
-import os
-os.remove("demofile.txt")
+sql = "DROP TABLE customers"
 
+mycursor.execute(sql)import mysql.connector
 
-import os
-if os.path.exists("demofile.txt"):
-  os.remove("demofile.txt")
-else:
-  print("The file does not exist")
-  
-  import os
-os.rmdir("myfolder")
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
 
-"- Matn - Standart qiymat. Matn rejimi"
+mycursor = mydb.cursor()
 
-"b"-" Ikkilik - Ikkilik rejim (masalan, rasmlar)"
-"r"-" O'qish - Standart qiymat. Faylni o'qish uchun ochadi, agar fayl mavjud bo'lmasa, xatolik yuz beradi"
+sql = "DROP TABLE customers"
 
-"a"- "Qo'shish - Faylni qo'shish uchun ochadi, agar u mavjud bo'lmasa, faylni yaratadi"
+mycursor.execute(sql)
 
-"w"- "Yozish - Faylni yozish uchun ochadi, agar u mavjud bo'lmasa, faylni yaratadi"
+import mysql.connector
 
-"x"-" Yaratish - Belgilangan faylni yaratadi, agar fayl mavjud bo'lsa, xato qaytaradi"
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "DROP TABLE IF EXISTS customers"
+
+mycursor.execute(sql)
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT * FROM customers ORDER BY name"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+
+  import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT * FROM customers ORDER BY name DESC"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT * FROM customers ORDER BY name DESC"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT * FROM customers ORDER BY name DESC"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
