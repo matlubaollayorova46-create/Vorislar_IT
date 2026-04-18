@@ -1,108 +1,81 @@
-Blok trysizga kod blokini xatolar uchun sinab ko'rish imkonini beradi.
 
-Blok exceptsizga xatoni hal qilish imkonini beradi.
+Python mosligi
+Bu matchbayonot turli shartlarga asoslangan holda turli xil amallarni bajarish uchun ishlatiladi.
 
-Blok elsesizga xato bo'lmaganda kodni bajarishga imkon beradi.
+Python moslik bayonoti
+Ko'p bayonotlar yozish o'rniga if..else, siz bayonotdan foydalanishingiz mumkin match.
 
-Blok finallysizga try- va except bloklarining natijasidan qat'i nazar, kodni bajarishga imkon beradi.
+Bayonot matchbajarilishi kerak bo'lgan ko'plab kod bloklaridan birini tanlaydi.
 
-Istisnolarni qayta ishlash
-Xatolik yoki biz uni istisno deb ataganimizda, Python odatda to'xtaydi va xato xabarini yaratadi.
+SintaksisO'zingizning Python serveringizni oling
+match expression:
+  case x:
+    code block
+  case y:
+    code block
+  case z:
+    code block
+Bu quyidagicha ishlaydi:
 
-Ushbu istisnolar quyidagi bayonot yordamida hal qilinishi mumkin try:
-
-MisolO'zingizning Python serveringizni oling
-Blok tryistisno yaratadi, chunki xu aniqlanmagan:
-
-try:
-  print(x)
-except:
-  print("An exception occurred")
-try bloki xatolik yuzaga keltirgani uchun, except bloki bajariladi.
-
-Usha bloki bo'lmasa, dastur ishdan chiqadi va xatolik yuzaga keladi:
-
-Misol
-Bu bayonot xatoga olib keladi, chunki xaniqlanmagan:
-
-print(x)
-Ko'pgina istisnolar
-Siz xohlagancha istisno bloklarini belgilashingiz mumkin, masalan, agar siz maxsus turdagi xato uchun maxsus kod blokini bajarmoqchi bo'lsangiz:
+Ifoda matchbir marta baholanadi.
+Ifodaning qiymati har birining qiymatlari bilan taqqoslanadi case.
+Agar moslik bo'lsa, tegishli kod bloki bajariladi.
+Quyidagi misolda hafta kuni nomini chop etish uchun hafta kuni raqamidan foydalaniladi:
 
 Misol
-Agar try bloki a ni ko'tarsa, bitta xabarni NameErrorva boshqa xatolar uchun boshqa xabarni chop eting:
-
-try:
-  print(x)
-except NameError:
-  print("Variable x is not defined")
-except:
-  print("Something else went wrong")
-Python o'rnatilgan istisnolar ma'lumotnomasida ko'proq xato turlarini ko'ring .
+day = 4
+match day:
+  case 1:
+    print("Monday")
+  case 2:
+    print("Tuesday")
+  case 3:
+    print("Wednesday")
+  case 4:
+    print("Thursday")
+  case 5:
+    print("Friday")
+  case 6:
+    print("Saturday")
+  case 7:
+    print("Sunday")
 
 REKLAMALARNI OLIB TASHLASH
 
-Boshqa
-elseAgar xatolik yuzaga kelmasa, bajariladigan kod blokini aniqlash uchun kalit so'zdan foydalanishingiz mumkin :
+Standart qiymat
+Agar boshqa mosliklar bo'lmaganda kod bloki bajarilishini xohlasangiz, pastki chiziqli belgi _ ni oxirgi holat qiymati sifatida ishlating:
 
 Misol
-Ushbu misolda, tryblok hech qanday xatolik keltirib chiqarmaydi:
+day = 4
+match day:
+  case 6:
+    print("Today is Saturday")
+  case 7:
+    print("Today is Sunday")
+  case _:
+    print("Looking forward to the Weekend")
+_ qiymati har doim mos keladi, shuning uchun uni standart holat sifatida ishlashi uchun uni oxirgi holat sifatida joylashtirish muhimdir .
 
-try:
-  print("Hello")
-except:
-  print("Something went wrong")
-else:
-  print("Nothing went wrong")
-Nihoyat
-Agar blok finallybelgilangan bo'lsa, urinish bloki xatolik tug'diradimi yoki yo'qmi, qat'i nazar, bajariladi.
-
-Misol
-try:
-  print(x)
-except:
-  print("Something went wrong")
-finally:
-  print("The 'try except' is finished")
-Bu obyektlarni yopish va resurslarni tozalash uchun foydali bo'lishi mumkin:
+Qiymatlarni birlashtirish
+Bitta holatda bir nechta qiymat mos kelishini tekshirish uchun holatni baholashda yoki operatori sifatida | quvur belgisidan foydalaning :
 
 Misol
-Yozib bo'lmaydigan faylni ochib, unga yozishga harakat qiling:
-
-try:
-  f = open("demofile.txt")
-  try:
-    f.write("Lorum Ipsum")
-  except:
-    print("Something went wrong when writing to the file")
-  finally:
-    f.close()
-except:
-  print("Something went wrong when opening the file")
-Dastur fayl obyektini ochiq qoldirmasdan davom etishi mumkin.
-
-REKLAMALARNI OLIB TASHLASH
-
-Istisno qo'yish
-Python dasturchisi sifatida siz biron bir shart yuzaga kelganda istisno qo'yishni tanlashingiz mumkin.
-
-Istisno qo'yish (yoki oshirish) uchun raisekalit so'zdan foydalaning.
+day = 4
+match day:
+  case 1 | 2 | 3 | 4 | 5:
+    print("Today is a weekday")
+  case 6 | 7:
+    print("I love weekends!")
+Agar soqchilar sifatida bayonotlar bo'lsa
+ifSiz qo'shimcha shart-tekshirish sifatida ishni baholashda bayonotlarni qo'shishingiz mumkin :
 
 Misol
-Agar x 0 dan past bo'lsa, xatolik haqida xabar bering va dasturni to'xtating:
-
-x = -1
-
-if x < 0:
-  raise Exception("Sorry, no numbers below zero")
-Kalit raiseso'z istisno qo'zg'atish uchun ishlatiladi.
-
-Siz qanday xatolik yuz berishini va foydalanuvchiga chop etiladigan matnni belgilashingiz mumkin.
-
-Misol
-Agar x butun son bo'lmasa, TypeError xatosini ko'taring:
-
-x = "hello"
-
-if not type(x) is int:
-  raise TypeError("Only integers are allowed")
+month = 5
+day = 4
+match day:
+  case 1 | 2 | 3 | 4 | 5 if month == 4:
+    print("A weekday in April")
+  case 1 | 2 | 3 | 4 | 5 if month == 5:
+    print("A weekday in May")
+  case _:
+    print("No match")
