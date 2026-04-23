@@ -14,7 +14,7 @@ Massiv nima?
 Massiv - bu bir vaqtning o'zida bir nechta qiymatni saqlashi mumkin bo'lgan maxsus o'zgaruvchi.
 
 Agar sizda elementlar ro'yxati (masalan, avtomobil nomlari ro'yxati) bo'lsa, avtomobillarni bitta o'zgaruvchida saqlash quyidagicha ko'rinishi mumkin:
-g
+
 car1 = "Ford"
 car2 = "Volvo"
 car3 = "BMW"
