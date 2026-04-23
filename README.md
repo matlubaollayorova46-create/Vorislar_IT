@@ -9,7 +9,7 @@ Massivlar bitta o'zgaruvchida bir nechta qiymatlarni saqlash uchun ishlatiladi:
 MisolO'zingizning Python serveringizni oling
 Avtomobil nomlarini o'z ichiga olgan massiv yarating:
 
-cars = ["Ford", "Volvo", "BMW"]\
+cars = ["Ford", "Volvo", "BMW"]
 Massiv nima?
 Massiv - bu bir vaqtning o'zida bir nechta qiymatni saqlashi mumkin bo'lgan maxsus o'zgaruvchi.
 
