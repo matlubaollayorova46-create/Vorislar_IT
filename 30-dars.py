@@ -1,118 +1,39 @@
-import mysql.connector
+with open("demofile.txt", "a") as f:
+  f.write("Now the file has more content!")
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="mydatabase"
-)
+#open and read the file after the appending:
+with open("demofile.txt") as f:
+  print(f.read())
+  
+  with open("demofile.txt", "w") as f:
+    f.write("Woops! I have deleted the content!")
 
-mycursor = mydb.cursor()
+#open and read the file after the overwriting:
+with open("demofile.txt") as f:
+  print(f.read())
+  
+  f = open("myfile.txt", "x")
 
-sql = "DROP TABLE customers"
+import os
+os.remove("demofile.txt")
 
-mycursor.execute(sql)import mysql.connector
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="mydatabase"
-)
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+else:
+  print("The file does not exist")
+  
+  import os
+os.rmdir("myfolder")
 
-mycursor = mydb.cursor()
+"- Matn - Standart qiymat. Matn rejimi"
 
-sql = "DROP TABLE customers"
+"b"-" Ikkilik - Ikkilik rejim (masalan, rasmlar)"
+"r"-" O'qish - Standart qiymat. Faylni o'qish uchun ochadi, agar fayl mavjud bo'lmasa, xatolik yuz beradi"
 
-mycursor.execute(sql)
+"a"- "Qo'shish - Faylni qo'shish uchun ochadi, agar u mavjud bo'lmasa, faylni yaratadi"
 
-import mysql.connector
+"w"- "Yozish - Faylni yozish uchun ochadi, agar u mavjud bo'lmasa, faylni yaratadi"
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="mydatabase"
-)
-
-mycursor = mydb.cursor()
-
-sql = "DROP TABLE IF EXISTS customers"
-
-mycursor.execute(sql)
-
-import mysql.connector
-
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="mydatabase"
-)
-
-mycursor = mydb.cursor()
-
-sql = "SELECT * FROM customers ORDER BY name"
-
-mycursor.execute(sql)
-
-myresult = mycursor.fetchall()
-
-for x in myresult:
-  print(x)
-
-  import mysql.connector
-
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="mydatabase"
-)
-
-mycursor = mydb.cursor()
-
-sql = "SELECT * FROM customers ORDER BY name DESC"
-
-mycursor.execute(sql)
-
-myresult = mycursor.fetchall()
-
-for x in myresult:
-  print(x)import mysql.connector
-
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="mydatabase"
-)
-
-mycursor = mydb.cursor()
-
-sql = "SELECT * FROM customers ORDER BY name DESC"
-
-mycursor.execute(sql)
-
-myresult = mycursor.fetchall()
-
-for x in myresult:
-  print(x)import mysql.connector
-
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="mydatabase"
-)
-
-mycursor = mydb.cursor()
-
-sql = "SELECT * FROM customers ORDER BY name DESC"
-
-mycursor.execute(sql)
-
-myresult = mycursor.fetchall()
-
-for x in myresult:
-  print(x)
+"x"-" Yaratish - Belgilangan faylni yaratadi, agar fayl mavjud bo'lsa, xato qaytaradi"
