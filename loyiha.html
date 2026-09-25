@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muvaffaqiyat Taymeri</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .quote-box {
+            min-height: 80px;
+            margin-bottom: 25px;
+            font-style: italic;
+            font-size: 16px;
+            color: #e0e0e0;
+            line-height: 1.5;
+        }
+
+        .timer-display {
+            font-size: 64px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .buttons button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-start { background-color: #4caf50; color: white; }
+        .btn-pause { background-color: #ff9800; color: white; }
+        .btn-reset { background-color: #f44336; color: white; }
+
+        .buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            opacity: 0.9;
+        }
+
+        .btn-quote {
+            background: transparent;
+            border: 1px solid white !important;
+            color: white;
+            margin-top: 20px !important;
+            font-size: 14px !important;
+            padding: 8px 15px !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Diqqatni Jamlash Taymeri</h1>
+        
+        <div class="quote-box" id="quote-container">
+            "Yuksalishni xohlasangiz, bugun boshlang!"
+        </div>
+
+        <div class="timer-display" id="timer">25:00</div>
+
+        <div class="buttons">
+            <button class="btn-start" id="startBtn">Boshlash</button>
+            <button class="btn-pause" id="pauseBtn">Pauza</button>
+            <button class="btn-reset" id="resetBtn">Yangilash</button>
+            <br>
+            <button class="btn-quote" id="quoteBtn">Yangi iqtibos</button>
+        </div>
+    </div>
+
+    <script>
+        // Iqtiboslar bazasi
+        const quotes = [
+            "Muvaffaqiyat — bu har kuni takrorlanadigan kichik urinishlar yig'indisidir.",
+            "Boshlash uchun ajoyib bo'lishingiz shart emas, lekin ajoyib bo'lish uchun boshlashingiz kerak.",
+            "Vaqtingiz cheklangan, uni birovning hayoti bilan yashab isrof qilmang.",
+            "Kelajakni bashorat qilishning eng yaxshi yo'li — uni yaratishdir.",
+            "Katta ishlarni qilishning yagona yo'li — o'z ishingizni sevishdir."
+        ];
+
+        // Taymer o'zgaruvchilari
+        let timeLeft = 25 * 60; // 25 daqiqa soniyalarda
+        let timerId = null;
+
+        // Elementlarni chaqirib olish
+        const timerDisplay = document.getElementById('timer');
+        const startBtn = document.getElementById('startBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const quoteContainer = document.getElementById('quote-container');
+        const quoteBtn = document.getElementById('quoteBtn');
+
+        // Taymerni ekranga chiqarish funksiyasi
+        function updateDisplay() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Taymerni ishga tushirish
+        startBtn.addEventListener('click', () => {
+            if (timerId === null) {
+                timerId = setInterval(() => {
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        updateDisplay();
+                    } else {
+                        clearInterval(timerId);
+                        timerId = null;
+                        alert("Vaqt tugadi! Biroz dam oling.");
+                        timeLeft = 25 * 60;
+                        updateDisplay();
+                    }
+                }, 1000);
+            }
+        });
+
+        // Pauza qilish
+        pauseBtn.addEventListener('click', () => {
+            clearInterval(timerId);
+            timerId = null;
+        });
+
+        // Tozalash (Reset)
+        resetBtn.addEventListener('click', () => {
+            clearInterval(timerId);
+            timerId = null;
+            timeLeft = 25 * 60;
+            updateDisplay();
+        });
+
+        // Tasodifiy iqtibos chiqarish
+        quoteBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteContainer.textContent = `"${quotes[randomIndex]}"`;
+        });
+    </script>
+</body>
+</html>
