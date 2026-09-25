@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiberpank Vizitka</title>
+    <style>
+        /* Umumiy sozlamalar va kiberpank foni */
+        body {
+            background-color: #0a0a12;
+            background-image: 
+                radial-gradient(rgba(244, 0, 137, 0.1) 15%, transparent 16%),
+                radial-gradient(rgba(0, 240, 255, 0.1) 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Neon karta */
+        .card {
+            background: rgba(10, 10, 18, 0.85);
+            border: 3px solid #00f0ff;
+            padding: 40px;
+            border-radius: 0px; /* Kiberpankda keskin burchaklar urfda */
+            box-shadow: 
+                0 0 15px #00f0ff,
+                inset 0 0 15px #00f0ff;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Burchaklardagi dekorativ kiber-chiziqlar */
+        .card::before {
+            content: "SYSTEM: ONLINE";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #0a0a12;
+            padding: 0 10px;
+            font-size: 12px;
+            color: #f40089;
+            text-shadow: 0 0 5px #f40089;
+        }
+
+        /* Profil rasmi o'rnidagi neon halqa */
+        .avatar-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 4px dashed #f40089;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px #f40089;
+            animation: aylanish 10s linear infinite;
+        }
+
+        .avatar-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00f0ff;
+            text-shadow: 0 0 10px #00f0ff;
+        }
+
+        /* Ism va Glitch effekti */
+        h1 {
+            font-size: 28px;
+            margin: 10px 0;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 
+                2px 2px #f40089,
+                -2px -2px #00f0ff;
+            letter-spacing: 2px;
+        }
+
+        p {
+            color: #8ab4f8;
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Neon Tugmalar */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: #00f0ff;
+            border: 1px solid #00f0ff;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .btn:hover {
+            color: #0a0a12;
+            background: #00f0ff;
+            box-shadow: 0 0 25px #00f0ff;
+            transform: scale(1.03);
+        }
+
+        /* Ikkinchi turdagi neon tugma (Pushti) */
+        .btn-alt {
+            color: #f40089;
+            border-color: #f40089;
+        }
+
+        .btn-alt:hover {
+            color: #0a0a12;
+            background: #f40089;
+            box-shadow: 0 0 25px #f40089;
+        }
+
+        /* Animatsiya */
+        @keyframes aylanish {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
